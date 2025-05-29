@@ -8,9 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/**
- * Apollo 代理接口
- */
 app.post('/proxy/apollo', async (req, res) => {
   try {
     const response = await fetch('https://api.apollo.io/api/v1/mixed_companies/search', {
@@ -31,9 +28,6 @@ app.post('/proxy/apollo', async (req, res) => {
   }
 });
 
-/**
- * OpenAI GPT 代理接口
- */
 app.post('/gpt', async (req, res) => {
   try {
     const { messages, model = 'gpt-4', temperature = 1.0 } = req.body;
