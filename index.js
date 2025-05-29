@@ -1,8 +1,10 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors'); // ✅ 新增
 require('dotenv').config();
 
 const app = express();
+app.use(cors());              // ✅ 新增
 app.use(express.json());
 
 app.post('/gpt', async (req, res) => {
